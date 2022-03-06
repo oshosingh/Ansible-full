@@ -13,3 +13,12 @@ copied file and after the file is executed, it delete the file. The file is like
 -> copy files = ansible [group] -m copy -a "src=/src/file/path dest=/dest/file/path"
 
 -> copy content in new file = ansible [group] -m copy -a "content='this is new content' dest=/dest/file"
+
+-------------------------- File -------------------------------
+
+-> Create file = ansible [group] -m file -a "dest=/path/tp/file state=touch"
+
+-> Delete file = ansible [group] -m file -a "dest=/path/to/file state=absent"
+
+-> permission = ansible [group] -m file -a "dest= /path/to/file state = absent mode= 0775"
+--------------------------------------------------------------
