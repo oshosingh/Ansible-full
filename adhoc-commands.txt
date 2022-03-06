@@ -34,7 +34,17 @@ copied file and after the file is executed, it delete the file. The file is like
              ansible [group] -m yum/apt -a "name = <package=name> state= <state>" -b (execute as root user)
       
              
-     
-Note = Can also be done using shell module (use package manager module, recommended for better response msg)
+ Note = Can also be done using shell module (use package manager module, recommended for better response msg)
 
 -------------------------------------------------------------------------
+
+
+
+
+1. setup -> Get Info of client machine
+   commands = ansible [group] -m setup
+
+
+
+
+
