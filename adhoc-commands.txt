@@ -26,3 +26,15 @@ copied file and after the file is executed, it delete the file. The file is like
 -> create directory = ansible [group] -m file -a "dest= /path/to/dir state = directory mode= 0775"
 
 -> delete directory = ansible [group] -m file -a "dest= /path/to/dir state = absent"
+
+
+--------------- Package Manager Install/Uninstall Packages ---------------
+
+-> package = ansible [group] -m yum/apt -a "name = <package=name> state= <state>"   [state = absent, present, installed, latest(update package), removed]
+             ansible [group] -m yum/apt -a "name = <package=name> state= <state>" -b (execute as root user)
+      
+             
+     
+Note = Can also be done using shell module (use package manager module, recommended for better response msg)
+
+-------------------------------------------------------------------------
