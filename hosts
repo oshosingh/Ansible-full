@@ -1,0 +1,9 @@
+[web]
+ec2-user@1.2.3.4
+ec2-user@google.com
+
+[backend]
+ec2-user@1.2.3.4
+
+
+# run inventory -> ansible web -m ping
