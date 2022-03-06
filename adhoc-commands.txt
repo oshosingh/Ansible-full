@@ -1,5 +1,7 @@
 # Ansible modules
 
+available modules = ansible-doc l
+
 How does ansible work?
 Ansible creates a file based on the modules used in the command or playbook on the ansible-controller machine
 and then it copies that file to the ansible-clinets into a .ansible folder in the user's home directory.
