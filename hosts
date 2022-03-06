@@ -6,4 +6,4 @@ ec2-user@google.com
 ec2-user@1.2.3.4
 
 
-# run inventory -> ansible web -m ping
+# run inventory ad-hoc commands -> ansible web -m ping, ansible web -m shell -a "free -m"
