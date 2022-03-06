@@ -1,0 +1,15 @@
+# Ansible modules
+
+How does ansible work?
+Ansible creates a file based on the modules used in the command or playbook on the ansible-controller machine
+and then it copies that file to the ansible-clinets inside a .ansible folder in the user's home directory.
+After the file is copied on the client machine, it uses the appropriate python runtime to execute the 
+copied file and after the file is executed, it delete the file. The file is like a binary.
+
+-> ping = ansible [group] -m ping
+
+-> shell = ansible [group] -m shell -a "free -m"
+
+-> copy files = ansible [group] -m copy -a "src=/src/file/path dest=/dest/file/path"
+
+-> copy content in new file = ansible [group] -m copy -a "content='this is new content' dest=/dest/file"
