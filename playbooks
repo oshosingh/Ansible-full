@@ -28,6 +28,8 @@
       yum:
         name: httpd
         state: latest
+   
+   run playbook = ansible-playbook -i <path of inv file> -u ec-user playbook_name.yml
 ---
 
 
