@@ -1,0 +1,23 @@
+1. Create Service Account in GCP, which have Compute Engine Access Permission.
+
+2. Create sample yml file for GCP Nodes dynamic inventory (ansible.gcp.yml)
+    
+    plugin: gcp_compute
+    Projects:
+      - <gcp-project-id>
+    auth_kind: serviceaccount
+    service_account_file: /opt/ansible/inventory/service-account.json
+    keyed_groups:
+      - key: labels
+        prefix: label
+      - key: zone
+        prefix: zone
+   
+3. File extension must be .gcp.yml, other doesn't works some time
+
+4. pip3 install requests google-auth
+
+5. ansible-inventory -i ansible.gcp.yml --list or --graph
+
+6. Run using keyed_groups
+    ansible-inventory label_type_app -i ansible.gcp.yml -m ping
