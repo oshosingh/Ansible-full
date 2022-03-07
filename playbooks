@@ -1,0 +1,38 @@
+ Why do you need Playbooks ?
+ -> Ad-hoc is not good if you are running sequence of actions on clients.
+ -> To execute multiple config
+ 
+ Playbook is a YAML file, which contains multiple tasks
+ Along with task, user have option to use dynamic things
+  -> Variable, Files & Templates etc.
+ 
+ Playbooks are useful for config mgmt, Deployment, Orchestration etc.
+ 
+ Structure of Playbooks
+    . Concepts
+        - Tasks
+        - Play
+        - Playbooks
+ 
+ Play -> combination of Tasks + targets
+ Task -> Operation, user wants to perform
+ 
+ Playbooks - combination of plays or list or sequence of plays
+---
+ - name: Playbook
+   hosts: <group-name>
+   become: yes
+   become_user: root
+   tasks:
+    - name: ensure apache is at the latest version
+      yum:
+        name: httpd
+        state: latest
+---
+
+
+ 
+     
+  
+ 
+ 
