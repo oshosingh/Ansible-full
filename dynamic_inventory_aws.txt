@@ -1,0 +1,46 @@
+Types of Inventory
+1. Static Inventory
+2. Dynamic Inventory -> IP or FQDN not mentioned manually, get dynamically through script/plugin
+
+
+Ansible have dynamic inventory script for public clouds
+1. AWS
+2. Gcloud
+3. Azure
+
+
+-> Define Inventory to Ansible command dynamically
+
+find doc= ansible-doc -t inventory -l
+
+-> Add Enable Plugin Syntax in Ansible cfg file
+    [inventory]
+    enable_plugins = host_list,script,auto,yaml,ini,toml (enable always)
+
+-> For AWS dynamic inventory
+    1. install boto3 and botocore
+    
+    2. Configure AWS credentials on Ansible-Master
+        export AWS_ACCESS_KEY_ID='ABCD'
+        export AWS_SECRET_ACCESS_KEY='ABCD'
+        
+    3. Create YML file for AWS Plugin (aws_ec2.yml)
+        plugin: amazon.aws.aws_ec2
+        filters:
+            instance-state-name: running
+          
+        
+    4. verify and Populate the AWS Dynamic Inventory
+       commands = ansible-inventory -i aws_ec2.yml --graph (list only running host)
+                                                or --list (to get all data)
+    
+    5. command = ansible [group] -i aws_ec2.yml -u ec2-user ping
+       
+       
+       
+    
+        
+        
+
+
+
