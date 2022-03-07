@@ -23,6 +23,7 @@
    hosts: <group-name>
    become: yes
    become_user: root
+   gather_facts: false [if you want to disable setup module call]
    tasks:
     - name: ensure apache is at the latest version
       yum:
