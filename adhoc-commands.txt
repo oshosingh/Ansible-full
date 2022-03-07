@@ -25,9 +25,9 @@ copied file and after the file is executed, it delete the file. The file is like
 -> permission = ansible [group] -m file -a "dest= /path/to/file state = absent mode= 0775"
 --------------------------------------------------------------
 
--> create directory = ansible [group] -m file -a "dest= /path/to/dir state = directory mode= 0775"
+-> create directory = ansible [group] -m directory -a "dest= /path/to/dir state = directory mode= 0775"
 
--> delete directory = ansible [group] -m file -a "dest= /path/to/dir state = absent"
+-> delete directory = ansible [group] -m directory -a "dest= /path/to/dir state = absent"
 
 
 --------------- Package Manager Install/Uninstall Packages ---------------
