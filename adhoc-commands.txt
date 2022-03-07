@@ -25,9 +25,9 @@ copied file and after the file is executed, it delete the file. The file is like
 -> permission = ansible [group] -m file -a "dest= /path/to/file state = absent mode= 0775"
 --------------------------------------------------------------
 
--> create directory = ansible [group] -m directory -a "dest= /path/to/dir state = directory mode= 0775"
+-> create directory = ansible [group] -m file -a "dest= /path/to/dir state = directory mode= 0775"
 
--> delete directory = ansible [group] -m directory -a "dest= /path/to/dir state = absent"
+-> delete directory = ansible [group] -m file -a "dest= /path/to/dir state = absent"
 
 
 --------------- Package Manager Install/Uninstall Packages ---------------
@@ -40,11 +40,19 @@ copied file and after the file is executed, it delete the file. The file is like
 
 -------------------------------------------------------------------------
 
-
-
-
 1. setup -> Get Info of client machine
    commands = ansible [group] -m setup
+
+------------------------------ Custom Facts ---------------------------------
+1. create /etc/ansible/facts.d on your managed nodes
+2. Inside the facts.d create one or more custom facts file
+    with extension of .fact
+3. Output of fact file should be JSON
+4. Fact file should have execution permission
+
+command to get local facts = ansible [group] -m setup -a "filter=ansible_local"
+-----------------------------------------------------------------------------
+
 
 
 
