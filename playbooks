@@ -34,6 +34,23 @@
 ---
 
 
+-------------------------------- Executing playbooks yaml file directly ----------------------------------
+1. use shebang at the top of playbook (add the full binary path prefixing with #!)
+2. update ansible.cfg and add the dynamic inventiry path
+3. use remote_user: ec2-user at the start of playbook if you would like to execute as user
+4. give executable permission to file
+
+# create playbook and execute playbook directly without using ansible-playbook and -i etc commands
+# use --synatx-check to check syntax of playbook before executing it
+# use --check to dry run
+# -v to get verbose output
+-----------------------------------------------------------------------------------------------
+
+
+
+
+
+
  
      
   
