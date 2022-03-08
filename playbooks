@@ -47,6 +47,16 @@
 -----------------------------------------------------------------------------------------------
 
 
+# Debug Module
+  1. msg - print or logging statement
+  2. var - variable which value user wants to print
+  3. verbosity - Define verbosity of messages
+  4. for printing variable use {{var_name}}
+  
+  debug:
+   msg: "hi there"
+   var: {{}}
+   verbosity: 2
 
 
 
