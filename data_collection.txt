@@ -1,0 +1,23 @@
+1. variable is used to store single value
+2. Data collection objects are used to store multiple value
+3. You can have map data structure
+
+--- 
+vars:
+  xyz: hello world
+  packages: ['wget', 'unzip', 'curl', 'vim']
+  cities: 
+  - New York
+  - London
+  
+  web_server: {"Linux": "httpd", "Unix": "apache2"}
+  
+tasks:
+ - name: data collection retrieval
+   debug:
+     var: xyz
+ 
+ - name: getting sequence data collection
+   debug:
+     var: packages
+     
