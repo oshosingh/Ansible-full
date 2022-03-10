@@ -2,6 +2,11 @@
 vars:
   a: 10
   b: 20
+
+vars_prompt:
+ - name: x   (by default string)
+   prompt: please enter value of x
+   private no
   
 tasks:
   - name: operations on variable
@@ -11,7 +16,11 @@ tasks:
       - "value of b is : {{ b }}"
       - "Addition of a and b : {{a+b}}"    // {{}} is called jinja format
                                             // jinja syntax should be inside                                                  ""
-      
+    
+  - name: type conversion
+    debug:
+      mag:
+      - "value of a is : {{ x|int }}" // converted to int
       
       
   
