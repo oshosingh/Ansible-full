@@ -10,6 +10,7 @@ tasks:
       - "value of a is : {{ a }}"
       - "value of b is : {{ b }}"
       - "Addition of a and b : {{a+b}}"    // {{}} is called jinja format
+                                            // jinja syntax should be inside                                                  ""
       
       
       
