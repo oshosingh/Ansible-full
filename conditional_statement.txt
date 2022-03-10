@@ -1,0 +1,17 @@
+-> Conditional statements are helpful to Apply Condition base logic in 
+   Playbook.
+   
+-> when, failed_when, changed_when  ( all behave like if condition )
+
+
+---
+vars:
+  x = 10
+  y = 20
+tasks:
+ - name: conditional statement
+   debug:
+     msg:
+      - "x is less than y"
+   when: x>y
+   
