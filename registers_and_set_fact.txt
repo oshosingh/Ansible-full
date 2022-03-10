@@ -1,0 +1,19 @@
+1. Ansible Modules generally returns a data structure.
+2. User can store the output of module using ansible registers module.
+3. User can use the value of registers in different scenarios like
+   conditional statement, logging etc.
+   
+4. Set_fact is used to store the variable
+
+
+---
+tasks:
+  - name: Retrieve installed shell version
+    shell: "bash --version"
+    register: bash_var  (used to store returned data)
+    
+  - set_fact:
+      bash_version: {{bash_var.stdout_lines[0].split()[3]}}
+   
+  - debug:
+      var: bash_version
