@@ -1,0 +1,7 @@
+1. filter and methods are ways to perform operations on your variables
+2. Filter: inbuilt operation definition in Ansible (Jinja2 format)
+3. Method: Python methods, custom filters
+
+How to use - 
+1. Use | for inbuilt filters on variables
+2. Use . for methods on variables
