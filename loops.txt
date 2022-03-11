@@ -1,0 +1,41 @@
+1. Loops in ansible is helpful to iterate over items.
+2. Loops are helpful if user wants to perform many things in one task,
+   such as create a lot of users, install a lot of packages etc.
+   
+3. Standard loops with with_items
+4. Multiple items to iterate with with_items
+5. Loop over collection variable
+
+---
+vars:  (for point 5)
+  x : ['a','b']
+  y : [1,2,3,4]
+  
+  
+tasks:  
+  - name: add users in one go   (for point 3)
+    user:
+      name: "{{ item }}"     // reads item from with_items
+      state: present
+      groups: "users"
+    with_items:
+      - testuser1
+      - testuser2
+      
+      
+      
+  - name: add several users  (for point 4)
+    user:
+      name: "{{ item.name }}"
+      state: present
+      groups: "{{ item.groups }}"
+    with_items:
+      - {name: "testuser3", groups: "users"}
+      - {name: "testuser4", groups: "root"}
+      
+  - name: loop over collection of variable
+    debug:
+      msg: "{{ item.0 }} and {{ item.1 }}"
+    with_together:
+      - "{{ x }}"
+      - "{{ y }}" 
