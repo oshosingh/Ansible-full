@@ -1,0 +1,40 @@
+Handlers in ansible are used to order tasks.
+If some task is dependent on other task then we can use handler.
+
+One approach
+---
+tasks:
+  - name: Ensure apache is at latest version
+    yum:
+      name: httpd
+      state: latest
+    register: httpd_installation_status
+  
+  - name: Ensure apache is running
+    service:
+      name: httpd
+      state: started
+      when: httpd_installation_status.changed == True
+      
+      
+      
+Second approach (Using handler)
+--- 
+tasks:
+  - name: Ensure apache is at latest version
+    yum:
+      name: httpd
+      state: latest
+    notify:
+      - Ensure Apache is Running
+      - Restart
+
+handlers:
+  - name: Ensure Apache is Running
+    service:
+      name: httpd
+      state: started
+  - name: Restart
+    service:
+      name: httpd
+      state: restart
