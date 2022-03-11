@@ -39,3 +39,25 @@ tasks:
     with_together:
       - "{{ x }}"
       - "{{ y }}" 
+      
+      
+--------------- Random choice loop----------------------
+with_random_choice:
+  - x
+  - y
+  
+--------------  Do Until Loop ----------------
+To retry task until a certain condition is met
+
+register: result
+until: result.changed == True
+retries: 7 (default 3)
+delay: 5 (default 5)
+
+
+-------- Loop over a list with index -------------
+debug: 
+  msg: "{{item.0}}and {{item.1}}"
+  # first is index and second is value
+with_indexed_items:
+  - {{ x }}
