@@ -61,3 +61,15 @@ debug:
   # first is index and second is value
 with_indexed_items:
   - {{ x }}
+  
+  
+  
+------- Installing multiple package (loop module) -------  
+yum:
+  name: "{{ item }}"
+  state: present
+
+loop:
+  - httpd
+  - nginx
+  
