@@ -1,0 +1,31 @@
+1. Use ignore_errors: True, if you want others task to execute even if previous tasks fail.
+
+2. Block
+   -> Blocks in Ansible allow you to logically group a set of tasks together primarily for one of two purposes.
+   -> User can apply conditional logic to an entire set of tasks.
+   
+3. Rescure
+   -> Rescue block is used for cleanUp activity in Ansible.
+   -> User can use ansible block,rescue and always to perform different kinds of error handling, where the rescur
+      block will be use to perform cleanup action.
+      
+      
+   ---  (block = try, rescue = catch, always = finally)
+   - block:
+     - name: task 1
+       command: "ls -l /root"
+     
+     become: yes
+     ignore_errors: yes
+  
+     rescue: 
+       - name: Rescue block (do cleanup)
+         debug:
+           msg: 'something went wrong cleanup'
+     
+     always:
+       - name: always block (always execute similar to finally in java)
+   
+   
+       
+   
