@@ -1,0 +1,31 @@
+* include -> include (playbook, task), include_tasks (tasks only)
+             Dynamic (variable-substitution is possible), parsed at runtime
+* import -> import_playbook (playbook), import_tasks (tasks only)
+            Static (variable substitution not possible), parsed in the beginning
+            
+
+tasks.yml
+- name: task 1
+  debug:
+    msg: 'task 1'
+
+
+playbook.yml
+---
+- name: playbook
+  become: yes
+  hosts: localhost
+  become_user: ec2-user
+  gather_facts: false (use for localhost only, not recommended on production)
+  
+  tasks:
+    - name: 'play 1'
+      debug:
+        msg: 'play 1'
+    
+    - include: /path/to/tasks.yml
+      (should use include_tasks, because it will create new task on runtime)
+
+- include: /path/to/playbooks_file (include playbook)
+  (can use import_playbook)
+  
